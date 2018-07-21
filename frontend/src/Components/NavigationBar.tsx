@@ -10,13 +10,13 @@ import {
   NavLink,
 } from 'reactstrap';
 
-import './LandingCover.css';
+import './NavigationBar.css';
 
 interface NavState {
   isOpen: boolean;
 }
 
-export default class NavigationBar extends React.Component<{}, NavState> {
+class NavigationBar extends React.Component<{}, NavState> {
   public constructor(props: {}) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -57,3 +57,5 @@ export default class NavigationBar extends React.Component<{}, NavState> {
   }
 
 }
+
+export default NavigationBar;
