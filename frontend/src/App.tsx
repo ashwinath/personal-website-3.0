@@ -1,6 +1,6 @@
 import * as React from 'react';
 import NavigationBar from './Components/NavigationBar';
-import LandingCover from './Components/LandingCover';
+import MainPage from './Pages/MainPage';
 import Footer from './Components/Footer';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -10,7 +10,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavigationBar />
-        <LandingCover />
+        <MainPage />
         <Footer />
       </div>
     );
