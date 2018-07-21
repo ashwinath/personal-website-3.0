@@ -37,10 +37,13 @@ class NavigationBar extends React.Component<{}, NavState> {
             <Collapse isOpen={this.state.isOpen} navbar={true}>
               <Nav className="ml-auto" navbar={true}>
                 <NavItem>
-                  <NavLink className="nav-item-text" href="/components/">Components</NavLink>
+                  <NavLink className="nav-item-text" href="/">About</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-item-text" href="https://github.com/ashwinath">GitHub</NavLink>
+                  <NavLink className="nav-item-text" href="/resume">Resume</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-item-text" href="https://github.com/ashwinath/personal-website-3.0">GitHub</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
