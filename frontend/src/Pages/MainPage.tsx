@@ -1,4 +1,5 @@
 import * as React from 'react';
+import axios from 'axios';
 import {
   Row,
   Col,
@@ -14,61 +15,71 @@ import Content from '../Components/Content';
 
 import './MainPage.css';
 
-class MainPage extends React.Component<{}, {}> {
+class MainPage extends React.Component<{}, MainPageState> {
+  constructor(props: {}) {
+    super(props);
+
+    this.state = {
+      loaded: false,
+      error: false,
+      response: undefined,
+    };
+  }
+
+  public async componentDidMount() {
+    const response = await axios.get<FrontPageCopy>("/api/frontpage");
+
+    if (response.status !== 200) {
+      this.setState(() => {
+        return {
+          loaded: false,
+          error: true,
+          response: undefined
+        };
+      });
+      return
+    }
+
+    this.setState(() => {
+      return {
+        loaded: true,
+        error: false,
+        response: response.data,
+      };
+    });
+  }
+
   public render() {
+    if (this.state.loaded && this.state.response) {
+      const { landing, about, workExperience } = this.state.response
+      return (
+        <div>
+          <LandingCover message={landing.title}
+            imageUrl={landing.pictureUrl} />
+          <Content colourScheme={"two"}>
+            <AboutComponent about={about}/>
+          </Content>
+          <Content colourScheme={"one"}>
+            <WorkExperience workExperience={workExperience}/>
+          </Content>
+        </div>
+      );
+    }
+    // TODO: add error case
+    // TODO: add loading case
     return (
-      <div>
-        <LandingCover message={"Hello there!"}
-          imageUrl={"https://ashwinchat.com/static/media/LandingWallpaper.31864352.jpg"} />
-        <Content colourScheme={"two"}>
-          <About />
-        </Content>
-        <Content colourScheme={"one"}>
-          <WorkExperience />
-        </Content>
-      </div>
-    );
+      <h1>error</h1>
+    )
   }
 }
 
-interface CompanyDetailsProps {
-  companyDetails: CompanyDetails;
-}
-
-interface CompanyDetails {
-  title: string;
-  subtitle: string;
-  text: string;
-  imageUrl: string;
-}
-
-const allCompanyDetails = [
-  {
-    title: "99.co",
-    subtitle: "Software Engineer",
-    text: "I develop and ship stuff.",
-    imageUrl: "https://ashwinchat.com/static/media/ninety-nine.2a888e14.png",
-  },
-  {
-    title: "99.co",
-    subtitle: "Software Engineer",
-    text: "I develop and ship stuff.",
-    imageUrl: "https://ashwinchat.com/static/media/ninety-nine.2a888e14.png",
-  },
-  {
-    title: "99.co",
-    subtitle: "Software Engineer",
-    text: "I develop and ship stuff.",
-    imageUrl: "https://ashwinchat.com/static/media/ninety-nine.2a888e14.png",
-  },
-]
-
-function WorkExperience() {
+function WorkExperience(props: WorkExperienceProps) {
+  const { workExperience } = props;
   return (
     <div>
       <Row>
         {
-          allCompanyDetails.map((companyDetails) =>
+          workExperience.items.map((companyDetails) =>
             <CompanyCard key={`card-${companyDetails.title}`}
               companyDetails={companyDetails}/>
           )
@@ -78,18 +89,19 @@ function WorkExperience() {
   )
 }
 
-const CompanyCard: React.SFC<CompanyDetailsProps> = ({ companyDetails }) => {
+
+function CompanyCard(props: CompanyCardProps) {
   const {
     title,
     subtitle,
     text,
-    imageUrl
-  } = companyDetails;
+    pictureUrl
+  } = props.companyDetails;
 
   return (
     <Col md="4" xs="6">
       <Card>
-        <CardImg top={true} width={"100%"} src={imageUrl}/>
+        <CardImg top={true} width={"100%"} src={pictureUrl}/>
         <CardBody>
           <CardTitle>{title}</CardTitle>
           <CardSubtitle>{subtitle}</CardSubtitle>
@@ -100,13 +112,12 @@ const CompanyCard: React.SFC<CompanyDetailsProps> = ({ companyDetails }) => {
   );
 }
 
-const About = () => {
-  const aboutTitle = "Who am I?";
-  const aboutText = `
-  I am Daenerys of the House Targaryen, the First of Her Name, The Unburnt, Queen of the Andals, the Rhoynar and the First Men, Queen of Meereen, Khaleesi of the Great Grass Sea, Protector of the Realm, Lady Regnant of the Seven Kingdoms, Breaker of Chains and Mother of Dragons.
-  `
+const AboutComponent = (props: AboutProps) => {
+  const { about } = props;
+  const aboutTitle = about.title;
+  const aboutText = about.text;
+  const imageUrl = about.pictureUrl;
 
-  const imageUrl = "https://vignette.wikia.nocookie.net/disney/images/f/f9/Emilia_Clarke.jpg/revision/latest?cb=20161119001548";
   return (
     <div>
       <Row className="d-flex align-items-center">
@@ -126,3 +137,50 @@ const About = () => {
 }
 
 export default MainPage;
+
+interface MainPageState {
+  loaded: boolean;
+  error: boolean;
+  response?: FrontPageCopy;
+}
+
+interface FrontPageCopy {
+  landing: Landing;
+  about: About;
+  workExperience: WorkExperience;
+}
+
+interface Landing {
+  title: string;
+  pictureUrl: string;
+}
+
+interface About {
+  pictureUrl: string;
+  title: string;
+  text: string;
+}
+
+interface WorkExperience {
+  items: CompanyDetails[];
+}
+
+interface CompanyDetails {
+  title: string;
+  subtitle: string;
+  text: string;
+  pictureUrl: string;
+}
+
+interface WorkExperienceProps {
+  workExperience: WorkExperience;
+}
+
+interface CompanyCardProps {
+  companyDetails: CompanyDetails;
+}
+
+interface AboutProps {
+  about: About;
+}
+

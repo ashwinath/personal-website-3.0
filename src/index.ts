@@ -1,18 +1,10 @@
 import * as Restify from "restify";
 import * as Path from "path";
+import { frontPageHandler } from "./handlers";
 
 const server = Restify.createServer();
 
-function helloWorldHandler(
-    req: Restify.Request,
-    res: Restify.Response,
-    next: Restify.Next
-) {
-  res.send("hello world");
-  next();
-}
-
-server.get('/-/hello', helloWorldHandler);
+server.get('/api/frontpage', frontPageHandler);
 
 /**
  * This has to be the last.
