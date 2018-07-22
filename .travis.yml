@@ -1,10 +1,16 @@
 language: node_js
+services:
+- docker
 node_js:
-    - "10.7"
-
+- '10.7'
 before_script:
-    - yarn build-prod
-    - yarn build-prod-docker
-
+- yarn build-prod
+- yarn build-prod-docker
 script:
-    - bash scripts/test-docker.sh
+- bash scripts/test-docker.sh
+after_success:
+- bash scripts/push-docker.sh
+env:
+  global:
+  - secure: XiM1lX+0jAnqCqZ+9RuN7PpdD+HPY/pqUN0KDELDJDUPts10/dxvOVkJaSbxr/IuAe/X3TtVMoBoRn9aIUCNdEF1+xgz8kM/OGCssxL3zvzQkgOEyjXQ+/EfuA6Z1/YJKyxKrRnCvWyKsEBiALe0VMMIOaEytVAPLYO1wwRw3h0yil/epYL8KXg1sz/wR4di+i59BlxCvd6pyOCjmFSK1xmMuSSL75jgab1dIlQC5QzJvqi0wuzNPAGYshQifhMLq4XJPOmBdLhIMsAVCM/SzprOjKD2hOO3A84aL7Hh3c/inVw/pfSmKWpE2HU7VpnA0Ft6vd0RB0fImF8IA8hvhzohTPeJGpBzM7oyZOW07yQX9djoqBf/VifXRW+y2VAuHEhBLtV9GByLFfuDIzIVWyCYbugYBnjCPGq70RVHxGW2sNHvM4nAbR1aNTHDs3PaRQ4kYZKqJAHIHSqmAhFpwUy4Z7+9fGFhYabuHjWD9xbs+K5LTk34BG/2YaEEe4kcFxlWkNwG6U6PfjinGKQb/b5uugWfuzj9pKlug/LIhvMc5xat955z/hOHONS3q6JYI6OoQbHTdTFpA4gZWphba+xSUpam5S+xZmJ3CojjvI/rX+2Hjmd9EogBjy0eEgfKQwqvoAkrzdhHN4SXsJYVECFhYqXTSPaxAioTHIyGjHk=
+  - secure: zEnUFxQyZ61vlrzlJPtWSJFaiVuZiVic8OqmvS5EMPEq0KvUJxW0zSKYbAT5T6SOjgJlTqjLnKQsMBhJYVQsBzdrbaoo1BhgySxEdFKUa81JdBklBMzYlc1ZeY4aV/XgEsbjNOE62pbR2VDGNJ7rte8NZvD0+kDBhtQ3WsywQJJGtYBG/BbWHfFYBBcfsLjKmYZGYcCC3lE37D2bOrI6p/wZ4AttoDYU1bYtPaKr8Gdpl/3SAy4BwGE4nozn9tJ3Sxizpd+McE5Csdlyrj3EftvrzpLB3lGJpAL5GfRJKeiqpE3LisvhUXv7TQnFVEGoV7yASUDqFetCkdAyng5DxGUs9pP2+7QJmt7RjvEQOK1hAe8xByMYmZ9PqlndO0yfQmCqLy3vlW3aZmmqssD1o8+NM7qJ6ygR8XMlnQYEcAWv4UpC20azXprrSO5dooAyf8OJtBrAXMBeOtX0mJschO3BNFpWPam2VD7BE6T/n+Tb0zM0idA4z01XC0/6xErDYlS+oqj2mTcgIGfs+ANQthwoJ+YVcjZv7Hinv23wZiSX+1V3fvLQXcvoTrKCqODj3y6DVXPyl49vaRBQwtqtLRG9flfuN707Zz74zWzt/+LXsik6IGosXpBrHXi2VnDqCNr6S4/jkXUW/tG/8ln7KnGkOFqZZaSJH17WruL5QxE=
