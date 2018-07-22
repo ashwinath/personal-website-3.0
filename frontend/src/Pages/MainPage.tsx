@@ -12,6 +12,7 @@ import {
 } from 'reactstrap';
 import LandingCover from '../Components/LandingCover';
 import Content from '../Components/Content';
+import LoadingComponent from '../Components/LoadingComponent';
 
 import './MainPage.css';
 
@@ -64,12 +65,11 @@ class MainPage extends React.Component<{}, MainPageState> {
           </Content>
         </div>
       );
+    } else {
+      return (
+        <LoadingComponent colourScheme={"two"}/>
+      );
     }
-    // TODO: add error case
-    // TODO: add loading case
-    return (
-      <h1>error</h1>
-    )
   }
 }
 
