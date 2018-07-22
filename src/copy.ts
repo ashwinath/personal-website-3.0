@@ -29,32 +29,32 @@ interface CompanyDetails {
 const frontPageCopy: FrontPageCopy = {
   landing: {
     title: "Hello there!",
-    pictureUrl: "https://ashwinchat.com/static/media/LandingWallpaper.31864352.jpg",
+    pictureUrl: "/Images/BackDropFront.jpg",
   },
   about: {
-    pictureUrl: "https://vignette.wikia.nocookie.net/disney/images/f/f9/Emilia_Clarke.jpg/revision/latest?cb=20161119001548",
+    pictureUrl: "/Images/ProfilePicture.jpg",
     title: "Who am I?",
-    text: "I am Daenerys of the House Targaryen, the First of Her Name, The Unburnt, Queen of the Andals, the Rhoynar and the First Men, Queen of Meereen, Khaleesi of the Great Grass Sea, Protector of the Realm, Lady Regnant of the Seven Kingdoms, Breaker of Chains and Mother of Dragons."
+    text: "Hi there, I am Ashwin, software engineering autodidact. I graduated with a marketing degree but have been working professionally as a software engineer. Currently, I work at 99.co as a software engineer."
   },
   workExperience: {
     items: [
       {
         title: "99.co",
         subtitle: "Software Engineer",
-        text: "I develop and ship stuff",
-        pictureUrl: "https://ashwinchat.com/static/media/ninety-nine.2a888e14.png",
+        text: "Primarily a backend engineer, but have been involved in a bit of frontend and operations. I am involved in developing a product here.",
+        pictureUrl: "/Images/NinetyNine.png",
       },
       {
-        title: "99.co",
+        title: "HPE/DXC Technology",
         subtitle: "Software Engineer",
-        text: "I develop and ship stuff",
-        pictureUrl: "https://ashwinchat.com/static/media/ninety-nine.2a888e14.png",
+        text: "First job as a software engineer taking on a piece of mission critical softare in the enterprise world. I learnt most of the basics of programming here",
+        pictureUrl: "/Images/HPEDXC.png",
       },
       {
-        title: "99.co",
-        subtitle: "Software Engineer",
-        text: "I develop and ship stuff",
-        pictureUrl: "https://ashwinchat.com/static/media/ninety-nine.2a888e14.png",
+        title: "Epikk Co",
+        subtitle: "Content Marketer",
+        text: "Interned as a content marketer. Wrote articles for the company blog, talked to the maker community and wrote articles about them.",
+        pictureUrl: "/Images/Epikk.png",
       },
     ],
   },

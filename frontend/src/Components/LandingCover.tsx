@@ -16,8 +16,8 @@ class LandingCover extends React.Component<LandingProps, {}> {
       backgroundSize: "cover",
       backgroundImage: `url(${imageUrl})`,
       opacity: 0.86,
-      paddingTop: "100px",
-      paddingBottom: "100px",
+      paddingTop: "200px",
+      paddingBottom: "200px",
     };
 
     const headerStyle = {

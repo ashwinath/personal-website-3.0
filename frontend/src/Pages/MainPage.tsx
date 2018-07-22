@@ -128,7 +128,7 @@ const AboutComponent = (props: AboutProps) => {
         <Col md="2"/>
         <Col md="3">
           <Card>
-            <CardImg src={imageUrl}/>
+            <CardImg height="100%" src={imageUrl}/>
           </Card>
         </Col>
       </Row>
