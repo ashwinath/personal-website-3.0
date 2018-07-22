@@ -13,15 +13,16 @@
     "typescript": "^2.9.2"
   },
   "dependencies": {
+    "@types/bunyan": "^1.8.4",
     "@types/serve-static": "^1.13.2",
     "restify": "^7.2.1",
     "serve-static": "^1.13.2"
   },
   "scripts": {
     "watch": "./node_modules/typescript/bin/tsc -w",
-    "watch-build": "nodemon build/index.js",
+    "watch-build": "nodemon build/index.js | ./node_modules/bunyan/bin/bunyan",
     "build-prod": "rm -rf build/ && ./node_modules/typescript/bin/tsc && bash scripts/build-frontend.sh",
-    "run-prod": "node build/index.js",
+    "run-prod": "ENV=PROD node build/index.js",
     "build-prod-docker": "bash scripts/build-docker.sh"
   }
 }

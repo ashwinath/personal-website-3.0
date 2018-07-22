@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 RUN yarn
+RUN mkdir -p /var/log/website
 
 COPY build ./build
 
