@@ -99,7 +99,7 @@ function CompanyCard(props: CompanyCardProps) {
   } = props.companyDetails;
 
   return (
-    <Col md="4" xs="6">
+    <Col className="work-exp-card" md="4" xs="12">
       <Card>
         <CardImg top={true} width={"100%"} src={pictureUrl}/>
         <CardBody>
