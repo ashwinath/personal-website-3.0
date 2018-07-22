@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+    - "10.7"
+
+before_script:
+    - yarn build-prod
+    - yarn build-prod-docker
+
+script:
+    - bash scripts/test-docker.sh
