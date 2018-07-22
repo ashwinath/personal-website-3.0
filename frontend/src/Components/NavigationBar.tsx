@@ -28,12 +28,12 @@ class NavigationBar extends React.Component<{}, NavState> {
   public render() {
     return (
       <div>
-        <Navbar className="nav-bar-style" expand="md">
+        <Navbar className="nav-bar-style" expand="xs">
           <Container>
-            <NavbarBrand className="nav-item-text" href="/">
+            <NavbarBrand className="nav-item-text mr-auto" href="/">
               Ashwin
             </NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
+            <NavbarToggler onClick={this.toggle} className="mr-2"/>
             <Collapse isOpen={this.state.isOpen} navbar={true}>
               <Nav className="ml-auto" navbar={true}>
                 <NavItem>

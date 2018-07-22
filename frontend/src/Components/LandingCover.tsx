@@ -10,14 +10,16 @@ class LandingCover extends React.Component<LandingProps, {}> {
   public render() {
     const { message, imageUrl } = this.props;
 
+    const isMobile = window.innerWidth <= 768;
+
     const pictureStyle = {
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundImage: `url(${imageUrl})`,
       opacity: 0.86,
-      paddingTop: "200px",
-      paddingBottom: "200px",
+      paddingTop: isMobile ? "100px": "200px",
+      paddingBottom: isMobile ? "100px": "200px",
     };
 
     const headerStyle = {
