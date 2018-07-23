@@ -10,6 +10,7 @@ import {
   NavLink,
 } from 'reactstrap';
 
+import { Link } from 'react-router-dom';
 import './NavigationBar.css';
 
 interface NavState {
@@ -28,7 +29,7 @@ class NavigationBar extends React.Component<{}, NavState> {
   public render() {
     return (
       <div>
-        <Navbar className="nav-bar-style" expand="xs">
+        <Navbar className="nav-bar-style" expand="md">
           <Container>
             <NavbarBrand className="nav-item-text mr-auto" href="/">
               Ashwin
@@ -37,10 +38,17 @@ class NavigationBar extends React.Component<{}, NavState> {
             <Collapse isOpen={this.state.isOpen} navbar={true}>
               <Nav className="ml-auto" navbar={true}>
                 <NavItem>
-                  <NavLink className="nav-item-text" href="/">About</NavLink>
+                  <NavLink>
+                    <Link to="/"><div className="nav-item-text">About</div></Link>
+                  </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-item-text" href="/resume">Resume</NavLink>
+                  <NavLink>
+                    <Link to="/workflow"><div className="nav-item-text">Workflow</div></Link>
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-item-text" href="https://drive.google.com/file/d/0BxZd-ZB1I2mSRkxQLVdseER3XzQ/view">Resume</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-item-text" href="https://github.com/ashwinath/personal-website-3.0">GitHub</NavLink>

@@ -12,7 +12,6 @@ import {
 } from 'reactstrap';
 import LandingCover from '../Components/LandingCover';
 import Content from '../Components/Content';
-import LoadingComponent from '../Components/LoadingComponent';
 
 import './MainPage.css';
 
@@ -67,7 +66,7 @@ class MainPage extends React.Component<{}, MainPageState> {
       );
     } else {
       return (
-        <LoadingComponent colourScheme={"two"}/>
+        <div/>
       );
     }
   }
