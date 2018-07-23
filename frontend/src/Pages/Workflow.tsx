@@ -75,7 +75,7 @@ function Player(props: PlayerProps) {
   return (
     <div className={`workflow-background d-flex justify-content-center`}>
       <ReactPlayer
-        url="/workflowvideo"
+        url="/workflow.webm"
         width ={props.width}
         height={props.height}
         playing={true} loop={true} muted={true}/>
