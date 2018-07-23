@@ -31,20 +31,26 @@ class NavigationBar extends React.Component<{}, NavState> {
       <div>
         <Navbar className="nav-bar-style" expand="md">
           <Container>
-            <NavbarBrand className="nav-item-text mr-auto" href="/">
-              Ashwin
+            <NavbarBrand className="nav-item-text mr-auto">
+              <Link to="/" style={{ textDecoration: 'none' }}>
+                <div className="nav-item-text">Ashwin</div>
+              </Link>
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} className="mr-2"/>
             <Collapse isOpen={this.state.isOpen} navbar={true}>
               <Nav className="ml-auto" navbar={true}>
                 <NavItem>
                   <NavLink>
-                    <Link to="/"><div className="nav-item-text">About</div></Link>
+                    <Link to="/" style={{ textDecoration: 'none' }}>
+                      <div className="nav-item-text">About</div>
+                    </Link>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink>
-                    <Link to="/workflow"><div className="nav-item-text">Workflow</div></Link>
+                    <Link to="/" style={{ textDecoration: 'none' }}>
+                      <div className="nav-item-text">Workflow</div>
+                    </Link>
                   </NavLink>
                 </NavItem>
                 <NavItem>
