@@ -3,7 +3,7 @@ import { Container } from 'reactstrap';
 import './Content.css';
 
 interface ContentProps {
-  colourScheme: string; // one or two
+  colourScheme: "one" | "two";
   children: any;
 }
 

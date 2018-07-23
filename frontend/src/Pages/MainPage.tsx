@@ -37,7 +37,7 @@ class MainPage extends React.Component<{}, MainPageState> {
           response: undefined
         };
       });
-      return
+      return;
     }
 
     this.setState(() => {
