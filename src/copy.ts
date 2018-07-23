@@ -67,7 +67,7 @@ interface Workflow {
 
 const workflowCopy: Workflow = {
   dotfilesLocation: "https://github.com/ashwinath/dotfiles",
-  text: `Tmux + Neovim/Vim is awesome. This is probably the most productive workflow for me. I wrote an article on my Vim setup but that was when I did not use Tmux. I will probably write an article about my set up soon. This combination has been my daily driver since the start of 2018. I am using Alacritty for my terminal emulator since it's GPU rendered performs insanely well for my needs.`
+  text: `Tmux + Neovim/Vim is awesome. This is probably the most productive workflow for me. I wrote an article on my Vim setup but that was when I did not use Tmux. I will probably write an article about my set up soon. This combination has been my daily driver since the start of 2018. I am using Alacrittysince it's GPU rendered terminal performs insanely well for my needs.`
 };
 
 export { frontPageCopy, workflowCopy };
