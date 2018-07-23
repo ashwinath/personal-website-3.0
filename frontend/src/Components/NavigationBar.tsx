@@ -31,7 +31,7 @@ class NavigationBar extends React.Component<{}, NavState> {
       <div>
         <Navbar className="nav-bar-style" expand="md">
           <Container>
-            <NavbarBrand className="nav-item-text mr-auto">
+            <NavbarBrand className="nav-item-brand nav-item-text mr-auto">
               <Link to="/" style={{ textDecoration: 'none' }}>
                 <div className="nav-item-text">Ashwin</div>
               </Link>
@@ -48,7 +48,7 @@ class NavigationBar extends React.Component<{}, NavState> {
                 </NavItem>
                 <NavItem>
                   <NavLink>
-                    <Link to="/" style={{ textDecoration: 'none' }}>
+                    <Link to="/workflow" style={{ textDecoration: 'none' }}>
                       <div className="nav-item-text">Workflow</div>
                     </Link>
                   </NavLink>

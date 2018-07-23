@@ -6,6 +6,7 @@ import Footer from './Components/Footer';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.css';
+import './App.css';
 
 class App extends React.Component {
   public render() {
