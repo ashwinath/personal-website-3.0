@@ -1,5 +1,9 @@
 import * as Restify from "restify";
-import { frontPageCopy, workflowCopy } from "./copy";
+import {
+  frontPageCopy,
+  workflowCopy,
+  projectsCopy,
+} from "./copy";
 
 function frontPageHandler(
     request: Restify.Request,
@@ -19,4 +23,17 @@ function workflowHandler(
   next();
 }
 
-export { frontPageHandler, workflowHandler };
+function projectsHandler(
+    request: Restify.Request,
+    response: Restify.Response,
+    next: Restify.Next
+) {
+  response.send(200, projectsCopy);
+  next();
+}
+
+export {
+  frontPageHandler,
+  workflowHandler,
+  projectsHandler,
+};

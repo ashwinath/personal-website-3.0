@@ -1,7 +1,7 @@
 import * as Restify from "restify";
 import * as Path from "path";
 import logger from "./logger";
-import { frontPageHandler, workflowHandler } from "./handlers";
+import { frontPageHandler, workflowHandler, projectsHandler } from "./handlers";
 
 const server = Restify.createServer({
   log: logger,
@@ -13,6 +13,7 @@ server.on('after', Restify.plugins.auditLogger({
 }));
 server.get('/api/frontpage', frontPageHandler);
 server.get('/api/workflow', workflowHandler);
+server.get('/api/projects', projectsHandler);
 
 /**
  * This has to be the last.
