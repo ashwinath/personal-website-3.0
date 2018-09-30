@@ -1,14 +1,13 @@
 import * as React from "react";
 import axios from "axios";
 import {
-  Row,
-  Col,
   Card,
   CardImg,
 } from "reactstrap";
 import ReactPlayer from 'react-player';
 import Content from '../Components/Content';
 import LandingCover from '../Components/LandingCover';
+import "./Projects.css";
 
 interface ProjectContent {
   isVideo: boolean;
@@ -75,7 +74,18 @@ class Projects extends React.Component<{}, ProjectsState> {
   }
 
   private calculateDimensions() {
-    const windowWidth = 0.75 * window.innerWidth / 2;
+    let windowWidth: number;
+    if (window.innerWidth <= 576) {
+      windowWidth = Math.min(window.innerWidth, 540);
+    } else if (window.innerWidth <= 768) {
+      windowWidth = Math.min(window.innerWidth, 720);
+    } else if (window.innerWidth <= 992) {
+      windowWidth = Math.min(window.innerWidth, 920);
+    } else {
+      windowWidth = Math.min(window.innerWidth, 1140);
+    }
+    windowWidth *= 0.95;
+
     const windowHeight = windowWidth * 0.625;
 
     return {
@@ -102,8 +112,8 @@ function ProjectContent(props: ProjectContentProps) {
     windowWidth,
   } = props;
   return (
-    <Row>
-      <Col md="6">
+    <div>
+      <div className="text-center">
         {props.isVideo ?
           <VideoComponent
             mediaUrl={mediaUrl}
@@ -116,8 +126,8 @@ function ProjectContent(props: ProjectContentProps) {
             windowWidth={windowWidth}
           />
         }
-      </Col>
-      <Col md="6">
+      </div>
+      <div className="project-details">
         <h2>{props.title}</h2>
         {
           props.text.map((line) => (
@@ -126,8 +136,8 @@ function ProjectContent(props: ProjectContentProps) {
             </p>
           ))
         }
-      </Col>
-    </Row>
+      </div>
+    </div>
   );
 }
 
