@@ -13,7 +13,7 @@ import LandingCover from '../Components/LandingCover';
 interface ProjectContent {
   isVideo: boolean;
   mediaUrl: string;
-  text: string;
+  text: string[];
   title: string;
 }
 
@@ -89,7 +89,7 @@ class Projects extends React.Component<{}, ProjectsState> {
 interface ProjectContentProps {
   isVideo: boolean;
   mediaUrl: string;
-  text: string;
+  text: string[];
   title: string;
   windowHeight: number;
   windowWidth: number;
@@ -118,10 +118,14 @@ function ProjectContent(props: ProjectContentProps) {
         }
       </Col>
       <Col md="6">
-        <h3>{props.title}</h3>
-        <p>
-          {props.text}
-        </p>
+        <h2>{props.title}</h2>
+        {
+          props.text.map((line) => (
+            <p>
+              {line}
+            </p>
+          ))
+        }
       </Col>
     </Row>
   );

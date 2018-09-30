@@ -73,7 +73,7 @@ const workflowCopy: Workflow = {
 interface ProjectContent {
   isVideo: boolean;
   mediaUrl: string;
-  text: string;
+  text: string[];
   title: string;
 }
 
@@ -84,16 +84,23 @@ interface Projects {
 const projectsCopy: Projects = {
   projects: [
     {
-      isVideo: false,
-      mediaUrl: "/Images/BackDropFront.jpg",
-      title: "Lorem ipsums",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra venenatis mi at fringilla. Aenean in fermentum velit. Nunc mauris magna, ultrices sed tortor vitae, pellentesque sodales arcu. Pellentesque id fringilla ante. Curabitur lacinia porta erat, ut tincidunt lorem blandit ultricies. Vivamus eleifend, turpis a porta gravida, velit eros laoreet turpis, non bibendum metus turpis at sapien. Nulla eget nisl bibendum, accumsan magna eu, sagittis ipsum. Maecenas tempor elit molestie euismod accumsan. Ut gravida volutpat dolor. Sed pellentesque quis tortor eget tempor. ",
+      isVideo: true,
+      mediaUrl: "/PoeSearch.webm",
+      title: "Path of Exile Search",
+      text: [
+        "This has been the most interesting side project I have written. It was mainly to explore Elasticsearch. I learnt a lot about string searches while writing this application.",
+        "This application allows searching for items in Path of Exile. Currently in this league, there are over 3000 searchable items. With this application, you can search based on the item name which provides autocomplete, or a fuzzy search on the item attributes.",
+        "For instance, searching \"Tary\" autocompletes to \"Taryn's Shiver\". \"Today Im wise\" correctly searches \"Rumi's Concoction\" because of the flavour text \"Today I am wise, so I am changing myself.\"",
+      ]
     },
     {
-      isVideo: true,
-      mediaUrl: "/workflow.webm",
-      title: "Cat Ipsum",
-      text:" Spread kitty litter all over house the fat cat sat on the mat bat away with paws. Stand with legs in litter box, but poop outside sit on human meow loudly just to annoy owners experiences short bursts of poo-phoria after going to the loo. Catch mouse and gave it as a present. Cats are fats i like to pets them they like to meow back kitty power. Dismember a mouse and then regurgitate parts of it on the family room floor leave fur on owners clothes wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again and asdflkjaertvlkjasntvkjn (sits on keyboard) i heard this rumor where the humans are our owners, pfft, what do they know?! demand to be let outside at once, and expect owner to wait for me as i think about it spread kitty litter all over house. Carefully drink from water glass and then spill it everywhere and proceed to lick the puddle rub face on owner, try to hold own back foot to clean it but foot reflexively kicks you in face, go into a rage and bite own foot, hard my cat stared at me he was sipping his tea, too rub face on owner kitty poochy and attack dog, run away and pretend to be victim.",
+      isVideo: false,
+      mediaUrl: "/Images/Homescreen.png",
+      title: "Personal Website",
+      text: [
+        "Not having done website design and front end tech professionally, I do make it a point to try to balance my skills in programming in the web world. This site is made using React for the frontend and Restify for the backend. All written in Typescript.",
+        "This project is intended to market myself, as well as to showcase what I do during my free time, as well as where I have worked. This is the third iteration of my website since I'm constantly learning about stuff in the frontend world."
+      ]
     },
   ]
 };
