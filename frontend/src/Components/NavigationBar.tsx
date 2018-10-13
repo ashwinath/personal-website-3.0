@@ -61,6 +61,9 @@ class NavigationBar extends React.Component<{}, NavState> {
                   </NavLink>
                 </NavItem>
                 <NavItem>
+                  <NavLink className="nav-item-text" href="https://blog.ashwinchat.com">Blog</NavLink>
+                </NavItem>
+                <NavItem>
                   <NavLink className="nav-item-text" href="https://drive.google.com/file/d/1494cpkalxwNZVaMszWZmW5ZeoVtvjNvb/view?usp=sharing">Resume</NavLink>
                 </NavItem>
                 <NavItem>
