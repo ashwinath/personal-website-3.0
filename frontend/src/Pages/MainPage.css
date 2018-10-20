@@ -1,8 +1,33 @@
-.about-title {
-  font-weight: 700;
+.main-page-wrapper {
+  height: 100vh;
 }
 
-.work-exp-card {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.landing-page {
+  display: flex;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Images/LandingCover.jpg);
+  height: 95%;
+  align-items: center;
+}
+
+.main-page-contents-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landing-about-section {
+  color: #fff;
+}
+
+.landing-about-section h1 {
+  font-size: 400%;
+  font-weight: 200;
+}
+
+.landing-about-section p {
+  font-size: 200%;
+  font-weight: 400;
 }
