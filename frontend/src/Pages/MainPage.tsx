@@ -12,6 +12,7 @@ class MainPage extends React.Component<{}, {}> {
       subtitle: "Read about what I've learnt so far.",
       callToActionText: "Read on my blog.",
       link: "https://blog.ashwinchat.com",
+      openInNewTab: true,
     },
     {
       iconClass: "fa fa-code",
@@ -19,6 +20,7 @@ class MainPage extends React.Component<{}, {}> {
       subtitle: "Software projects I do on the side.",
       callToActionText: "Check out the list.",
       link: "/projects",
+      openInNewTab: false,
     },
     {
       iconClass: "fa fa-pencil",
@@ -26,6 +28,7 @@ class MainPage extends React.Component<{}, {}> {
       subtitle: "A brief summary of what I've done.",
       callToActionText: "Get a copy of my resume.",
       link: "https://drive.google.com/file/d/1494cpkalxwNZVaMszWZmW5ZeoVtvjNvb/view?usp=sharing",
+      openInNewTab: true,
     },
   ];
 
@@ -39,7 +42,7 @@ class MainPage extends React.Component<{}, {}> {
               <LandingAbout/>
             </div>
 
-            <div>
+            <div className="link-text-wrapper">
               { this.LINK_TEXTS.map((text) => <LinkBox key={text.title} {...text}/>)}
             </div>
           </div>
@@ -63,8 +66,8 @@ function LinkBox(props: LinkBoxProps) {
   return (
     <a
       href={props.link}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={props.openInNewTab ? "_blank": ""}
+      rel={props.openInNewTab ? "noopener noreferrer": ""}
       className="link-box-wrapper"
     >
       <div className="link-box-icon-section">
@@ -85,6 +88,7 @@ interface LinkBoxProps {
   subtitle: string;
   callToActionText: string;
   link: string;
+  openInNewTab: boolean;
 }
 
 export default MainPage;

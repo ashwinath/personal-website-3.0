@@ -45,7 +45,7 @@
 .link-box-wrapper:active {
   text-decoration: none;
   box-shadow: 0 0 11px rgba(33,33,33,.5);
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.2s;
 }
 
 .link-box-wrapper {
@@ -84,3 +84,74 @@
   font-size: 100%;
 }
 
+@media only screen and (max-width: 1450px) {
+  .main-page-contents-wrapper {
+    margin: 0 5%;
+  }
+
+  .landing-about-section h1 {
+    font-size: 400%;
+    font-weight: 200;
+  }
+
+  .landing-about-section p {
+    font-size: 200%;
+    font-weight: 400;
+  }
+
+  .link-box-wrapper {
+    padding: 12px;
+  }
+
+  .link-box-icon-section {
+    margin-right: 20px;
+    font-size: 300%;
+  }
+
+  .link-box-text-section h3 {
+    font-size: 140%;
+    font-weight: 300;
+    padding-bottom: 10px;
+  }
+
+  .link-box-text-section p {
+    font-size: 100%;
+  }
+
+  .link-box-text-section .call-to-action {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-page-wrapper {
+    height: auto;
+    background-attachment: fixed;
+  }
+
+  .landing-page {
+    display: block;
+    padding: 30px 0;
+  }
+
+  .landing-about-section {
+    text-align: center;
+  }
+
+  .main-page-contents-wrapper {
+    display: block;
+    margin: 0;
+  }
+  
+  .link-text-wrapper {
+    display: block;
+    padding: 0 30px;
+  }
+
+  .link-box-wrapper:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+}
