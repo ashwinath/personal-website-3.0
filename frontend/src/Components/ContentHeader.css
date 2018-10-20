@@ -1,0 +1,18 @@
+.content-header-wrapper {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.content-header-wrapper h1 {
+  font-size: 400%;
+  font-weight: 100;
+}
+
+.content-header-wrapper i {
+  padding-right: 10px;
+}
+
+.content-header-wrapper p {
+  font-size: 200%;
+  font-weight: 300;
+}
