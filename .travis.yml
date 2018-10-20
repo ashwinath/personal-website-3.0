@@ -3,12 +3,8 @@ services:
 - docker
 node_js:
 - '10.7'
-before_script:
-- yarn build-prod
-- yarn build-prod-docker
-script:
-- bash scripts/test-docker.sh
 after_success:
+- bash scripts/build-docker.sh
 - docker login -u="ashwinath" -p="$DOCKER_PASSWORD"
 - if [[ $TRAVIS_BRANCH = master ]]; then docker push ashwinath/personal-website-3:latest;
   else true; fi

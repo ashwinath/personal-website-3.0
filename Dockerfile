@@ -1,12 +1,15 @@
-FROM node:10.7
+FROM node:10.7-alpine
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
-RUN yarn
-RUN mkdir -p /var/log/website
+ENV NPM_CONFIG_LOGLEVEL info
 
-COPY build ./build
+CMD mkdir -p /usr/src/app/build
+COPY . .
+cmd rm -rf node_modules
 
-EXPOSE 8080
-CMD ["yarn", "run-prod"]
+RUN npm install -g serve
+
+CMD serve -s build
+
+EXPOSE 5000
