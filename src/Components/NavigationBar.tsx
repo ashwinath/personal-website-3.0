@@ -33,7 +33,7 @@ class NavigationBar extends React.Component<{}, NavState> {
           <Container>
             <NavbarBrand className="nav-item-brand nav-item-text mr-auto">
               <Link to="/" style={{ textDecoration: 'none' }}>
-                <div className="nav-item-text">Ashwin</div>
+                <div className="nav-item-text">Ashwin Chat</div>
               </Link>
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} className="mr-2"/>
