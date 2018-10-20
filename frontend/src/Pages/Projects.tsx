@@ -1,174 +1,96 @@
 import * as React from "react";
-import axios from "axios";
-import {
-  Card,
-  CardImg,
-} from "reactstrap";
-import ReactPlayer from 'react-player';
-import Content from '../Components/Content';
-import LandingCover from '../Components/LandingCover';
 import NavigationBar from '../Components/NavigationBar';
 import Footer from '../Components/Footer';
+import ContentHeader from "../Components/ContentHeader";
+
 import "./Projects.css";
 
-interface ProjectContent {
-  isVideo: boolean;
-  mediaUrl: string;
-  text: string[];
-  title: string;
-}
+class Projects extends React.Component<{}, {}> {
+  private CONTENT_HEADER_PROPS = {
+    iconClass: "fa fa-pencil",
+    title: "Projects",
+    subtitle: "What I spend a lot of my free time on."
+  };
 
-interface ProjectsResponse {
-  projects: ProjectContent[];
-}
-
-interface ProjectsState {
-  windowWidth: number;
-  windowHeight: number;
-  projects?: ProjectContent[];
-}
-
-class Projects extends React.Component<{}, ProjectsState> {
-  constructor(props: {}) {
-    super(props);
-    this.resizeListener = this.resizeListener.bind(this);
-    this.calculateDimensions = this.calculateDimensions.bind(this);
-
-    this.state = {
-      ...this.calculateDimensions()
-    };
-  }
+  private ALL_PROJECT_CONTENT = [
+    {
+      imageUrl: "/Images/PoeSearch.gif",
+      title: "Path Of Exile Search",
+      subtitle: "Learning ElasticSearch",
+      text: [
+        `This application allows searching for items in Path of Exile. Currently in this league, there are over 3000 searchable items. With this application, you can search based on the item name which provides autocomplete, or a fuzzy search on the item attributes.`,
+        `For instance, searching "Tary" autocompletes to "Taryn's Shiver". "Today Im wise" correctly searches "Rumi's Concoction" because of the flavour text "Today I am wise, so I am changing myself."`
+      ],
+    },
+    {
+      imageUrl: "/Images/Website.png",
+      title: "Personal Website",
+      subtitle: "I believe in an all rounded developer.",
+      text: [
+        `Not having done website design and front end tech professionally, I do make it a point to try to balance my skills in programming in the web world. This site is made using React for the frontend and Restify for the backend. All written in Typescript.`,
+        `This project is intended to market myself, as well as to showcase what I do during my free time, as well as where I have worked. This is the third iteration of my website since I'm constantly learning about stuff in the frontend world.`,
+      ],
+    },
+  ];
 
   public render() {
     return (
       <div>
         <NavigationBar />
-        <LandingCover message="Projects"
-          imageUrl="/Images/BackDropFront.jpg" />
-        {
-          this.state.projects ? 
-            this.state.projects.map((project, index) => {
-              const backgroundIndex = index % 2 === 0 ? "two": "one";
+        <div className="projects-page-content">
+          <ContentHeader {...this.CONTENT_HEADER_PROPS}/>
+          {
+            this.ALL_PROJECT_CONTENT.map((project, index) => {
               return (
-                <Content colourScheme={backgroundIndex} key={project.title}>
-                  <ProjectContent {...project} {...this.state}/>
-                </Content>
+                <Project
+                  key={project.title}
+                  {...project}
+                  flipped={index % 2 === 0}
+                />
               );
-            }) : null
-        }
+            })
+          }
+        </div>
         <Footer />
       </div>
     );
   }
-
-  public async componentDidMount() {
-    const response = await axios.get<ProjectsResponse>("/api/projects");
-    this.setState(() => {
-      return {
-        ...this.state,
-        projects: response.data.projects,
-      }
-    })
-
-    window.addEventListener("resize-projects", this.resizeListener)
-  }
-
-  private resizeListener() {
-    this.setState(() => this.calculateDimensions())
-  }
-
-  private calculateDimensions() {
-    let windowWidth: number;
-    if (window.innerWidth <= 576) {
-      windowWidth = Math.min(window.innerWidth, 540);
-    } else if (window.innerWidth <= 768) {
-      windowWidth = Math.min(window.innerWidth, 720);
-    } else if (window.innerWidth <= 992) {
-      windowWidth = Math.min(window.innerWidth, 920);
-    } else {
-      windowWidth = Math.min(window.innerWidth, 1140);
-    }
-    windowWidth *= 0.95;
-
-    const windowHeight = windowWidth * 0.625;
-
-    return {
-      ...this.state,
-      windowWidth,
-      windowHeight,
-    }
-  }
 }
 
-interface ProjectContentProps {
-  isVideo: boolean;
-  mediaUrl: string;
-  text: string[];
+interface ProjectProps {
+  flipped: boolean;
+  imageUrl: string;
   title: string;
-  windowHeight: number;
-  windowWidth: number;
+  subtitle: string;
+  text: string[];
 }
 
-function ProjectContent(props: ProjectContentProps) {
+function Project(props: ProjectProps) {
   const {
-    mediaUrl,
-    windowHeight,
-    windowWidth,
+    flipped,
+    imageUrl,
+    title,
+    subtitle,
+    text,
   } = props;
+
   return (
-    <div>
-      <div className="text-center">
-        {props.isVideo ?
-          <VideoComponent
-            mediaUrl={mediaUrl}
-            windowHeight={windowHeight}
-            windowWidth={windowWidth}
-          />
-          : <ImageComponent 
-            mediaUrl={mediaUrl}
-            windowHeight={windowHeight}
-            windowWidth={windowWidth}
-          />
-        }
+    <section className={`project-component ${flipped ? "project-component-flipped" : ""}`}>
+      <div style={flipped ? {order: 2} : {order: 1}} className="project-picture">
+        <img
+          src={imageUrl}
+          alt={title}
+        />
       </div>
-      <div className="project-details">
-        <h2>{props.title}</h2>
+      <div style={flipped ? {order: 1} : {order: 2}} className="project-writeup">
+        <h1>{title}</h1>
+        <h3>{subtitle}</h3>
         {
-          props.text.map((line) => (
-            <p>
-              {line}
-            </p>
-          ))
+          text.map((item) => (<p>{item}</p>))
         }
       </div>
-    </div>
-  );
-}
-
-interface MediaComponent {
-  mediaUrl: string;
-  windowHeight: number;
-  windowWidth: number;
-}
-
-function ImageComponent(props: MediaComponent) {
-  return (
-    <Card>
-      <CardImg top={true} width={"100%"} src={props.mediaUrl}/>
-    </Card>
-  );
-}
-
-function VideoComponent(props: MediaComponent) {
-  return (
-    <div>
-      <ReactPlayer
-        url={props.mediaUrl}
-        width={props.windowWidth}
-        height={props.windowHeight}
-        playing={true} loop={true} muted={true}/>
-    </div>
-  );
+    </section>
+  )
 }
 
 export default Projects;
