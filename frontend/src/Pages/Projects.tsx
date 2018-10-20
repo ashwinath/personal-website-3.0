@@ -7,6 +7,8 @@ import {
 import ReactPlayer from 'react-player';
 import Content from '../Components/Content';
 import LandingCover from '../Components/LandingCover';
+import NavigationBar from '../Components/NavigationBar';
+import Footer from '../Components/Footer';
 import "./Projects.css";
 
 interface ProjectContent {
@@ -40,6 +42,7 @@ class Projects extends React.Component<{}, ProjectsState> {
   public render() {
     return (
       <div>
+        <NavigationBar />
         <LandingCover message="Projects"
           imageUrl="/Images/BackDropFront.jpg" />
         {
@@ -53,6 +56,7 @@ class Projects extends React.Component<{}, ProjectsState> {
               );
             }) : null
         }
+        <Footer />
       </div>
     );
   }

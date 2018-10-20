@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-
 interface LandingProps {
   message: string;
   imageUrl: string;

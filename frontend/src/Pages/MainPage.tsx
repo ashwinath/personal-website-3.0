@@ -1,185 +1,95 @@
 import * as React from 'react';
-import axios from 'axios';
-import {
-  Row,
-  Col,
-  Card,
-  CardImg,
-  CardTitle,
-  CardSubtitle,
-  CardText,
-  CardBody
-} from 'reactstrap';
-import LandingCover from '../Components/LandingCover';
-import Content from '../Components/Content';
+import NavigationBar from '../Components/NavigationBar';
+import Footer from '../Components/Footer';
 
 import './MainPage.css';
 
-class MainPage extends React.Component<{}, MainPageState> {
-  constructor(props: {}) {
-    super(props);
-
-    this.state = {
-      loaded: false,
-      error: false,
-      response: undefined,
-    };
-  }
-
-  public async componentDidMount() {
-    const response = await axios.get<FrontPageCopy>("/api/frontpage");
-
-    if (response.status !== 200) {
-      this.setState(() => {
-        return {
-          loaded: false,
-          error: true,
-          response: undefined
-        };
-      });
-      return;
-    }
-
-    this.setState(() => {
-      return {
-        loaded: true,
-        error: false,
-        response: response.data,
-      };
-    });
-  }
+class MainPage extends React.Component<{}, {}> {
+  private LINK_TEXTS = [
+    {
+      iconClass: "fa fa-book",
+      title: "Blog",
+      subtitle: "Read about what I've learnt so far.",
+      callToActionText: "Read on my blog.",
+      link: "https://blog.ashwinchat.com",
+      openInNewTab: true,
+    },
+    {
+      iconClass: "fa fa-code",
+      title: "Projects",
+      subtitle: "Software projects I do on the side.",
+      callToActionText: "Check out the list.",
+      link: "/projects",
+      openInNewTab: false,
+    },
+    {
+      iconClass: "fa fa-pencil",
+      title: "Resume",
+      subtitle: "A brief summary of what I've done.",
+      callToActionText: "Get a copy of my resume.",
+      link: "https://drive.google.com/file/d/1494cpkalxwNZVaMszWZmW5ZeoVtvjNvb/view?usp=sharing",
+      openInNewTab: true,
+    },
+  ];
 
   public render() {
-    if (this.state.loaded && this.state.response) {
-      const { landing, about, workExperience } = this.state.response
-      return (
-        <div>
-          <LandingCover message={landing.title}
-            imageUrl={landing.pictureUrl} />
-          <Content colourScheme={"two"}>
-            <AboutComponent about={about}/>
-          </Content>
-          <Content colourScheme={"one"}>
-            <WorkExperience workExperience={workExperience}/>
-          </Content>
+    return (
+      <div className="main-page-wrapper">
+        <NavigationBar />
+        <div className="landing-page">
+          <div className="main-page-contents-wrapper">
+            <div>
+              <LandingAbout/>
+            </div>
+
+            <div className="link-text-wrapper">
+              { this.LINK_TEXTS.map((text) => <LinkBox key={text.title} {...text}/>)}
+            </div>
+          </div>
         </div>
-      );
-    } else {
-      return (
-        <div/>
-      );
-    }
+        <Footer />
+      </div>
+    );
   }
 }
 
-function WorkExperience(props: WorkExperienceProps) {
-  const { workExperience } = props;
+function LandingAbout() {
   return (
-    <div>
-      <Row>
-        {
-          workExperience.items.map((companyDetails) =>
-            <CompanyCard key={`card-${companyDetails.title}`}
-              companyDetails={companyDetails}/>
-          )
-        }
-      </Row>
+    <div className="landing-about-section">
+      <h1>Hello, I'm Ashwin.</h1>
+      <p>I write software.</p>
     </div>
-  )
-}
-
-
-function CompanyCard(props: CompanyCardProps) {
-  const {
-    title,
-    subtitle,
-    text,
-    pictureUrl
-  } = props.companyDetails;
-
-  return (
-    <Col className="work-exp-card" md="4" xs="12">
-      <Card>
-        <CardImg top={true} width={"100%"} src={pictureUrl}/>
-        <CardBody>
-          <CardTitle>{title}</CardTitle>
-          <CardSubtitle>{subtitle}</CardSubtitle>
-          <CardText>{text}</CardText>
-        </CardBody>
-      </Card>
-    </Col>
   );
 }
 
-const AboutComponent = (props: AboutProps) => {
-  const { about } = props;
-  const aboutTitle = about.title;
-  const aboutText = about.text;
-  const imageUrl = about.pictureUrl;
-
+function LinkBox(props: LinkBoxProps) {
   return (
-    <div>
-      <Row className="d-flex align-items-center">
-        <Col md="7">
-          <h1 className="about-title">{aboutTitle}</h1>
-          <p>{aboutText}</p>
-        </Col>
-        <Col md="2"/>
-        <Col md="3">
-          <Card>
-            <CardImg height="100%" src={imageUrl}/>
-          </Card>
-        </Col>
-      </Row>
-    </div>
+    <a
+      href={props.link}
+      target={props.openInNewTab ? "_blank": ""}
+      rel={props.openInNewTab ? "noopener noreferrer": ""}
+      className="link-box-wrapper"
+    >
+      <div className="link-box-icon-section">
+        <p><i className={props.iconClass}/></p>
+      </div>
+      <div className="link-box-text-section">
+        <h3>{props.title}</h3>
+        <p>{props.subtitle}</p>
+        <p className="call-to-action">{props.callToActionText}</p>
+      </div>
+    </a>
   );
+}
+
+interface LinkBoxProps {
+  iconClass: string;
+  title: string;
+  subtitle: string;
+  callToActionText: string;
+  link: string;
+  openInNewTab: boolean;
 }
 
 export default MainPage;
-
-interface MainPageState {
-  loaded: boolean;
-  error: boolean;
-  response?: FrontPageCopy;
-}
-
-interface FrontPageCopy {
-  landing: Landing;
-  about: About;
-  workExperience: WorkExperience;
-}
-
-interface Landing {
-  title: string;
-  pictureUrl: string;
-}
-
-interface About {
-  pictureUrl: string;
-  title: string;
-  text: string;
-}
-
-interface WorkExperience {
-  items: CompanyDetails[];
-}
-
-interface CompanyDetails {
-  title: string;
-  subtitle: string;
-  text: string;
-  pictureUrl: string;
-}
-
-interface WorkExperienceProps {
-  workExperience: WorkExperience;
-}
-
-interface CompanyCardProps {
-  companyDetails: CompanyDetails;
-}
-
-interface AboutProps {
-  about: About;
-}
 

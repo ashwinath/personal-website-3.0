@@ -2,6 +2,8 @@ import axios from "axios";
 import * as React from 'react';
 import Content from "../Components/Content";
 import ReactPlayer from 'react-player';
+import NavigationBar from '../Components/NavigationBar';
+import Footer from '../Components/Footer';
 import "./Workflow.css"
 
 class Workflow extends React.Component<{}, WorkflowState> {
@@ -49,8 +51,10 @@ class Workflow extends React.Component<{}, WorkflowState> {
   public render() {
     return (
       <div>
+        <NavigationBar />
         <Player width={this.state.windowWidth} height={this.state.windowHeight}/>
         <WriteUp loaded={this.state.loaded} response={this.state.response}/>
+        <Footer />
       </div>
     );
   }
