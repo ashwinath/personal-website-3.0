@@ -6,6 +6,7 @@
   display: flex;
   padding: 30px 12%;
   justify-content: space-between;
+  align-items: center;
 }
 
 .project-writeup {
@@ -22,6 +23,7 @@
   font-size: 300%;
   font-weight: 100;
   padding-bottom: 10px;
+  text-align: left;
 }
 
 .project-writeup h3 {
@@ -30,7 +32,7 @@
 }
 
 .project-writeup p {
-  font-size: 140%;
+  font-size: 130%;
   line-height: 1.5;
 }
 
@@ -40,4 +42,27 @@
 
 .project-component img {
   max-width: 100%;
+}
+
+@media only screen and (max-width: 1500px) {
+  .project-component {
+    padding: 30px 5%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .project-component {
+    padding: 30px 2%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .project-component {
+    display: block;
+    text-align: center;
+  }
+
+  .project-picture {
+    padding-bottom: 20px;
+  }
 }
