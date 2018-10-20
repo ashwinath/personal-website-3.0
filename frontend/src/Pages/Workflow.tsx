@@ -28,7 +28,7 @@ function Item() {
     <section className="workflow-component">
       <div className="workflow-picture">
         <img
-          src="https://thumbs.gfycat.com/UnfinishedPlayfulIndigobunting-size_restricted.gif"
+          src="/Images/Workflow.gif"
           alt="workflow"
         />
       </div>
