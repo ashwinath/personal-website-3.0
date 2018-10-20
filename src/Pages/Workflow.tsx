@@ -33,7 +33,7 @@ function Item() {
         />
       </div>
       <div className="workflow-writeup">
-        <h1>Neovim + Tmux</h1>
+        <h2>Neovim + Tmux</h2>
         <h3>Writing code like a wizard.</h3>
         <p>
           Tmux + Neovim/Vim is awesome. This is probably the most productive workflow for me. This combination has been my daily driver since the start of 2018. I am using Alacritty since it's a GPU rendered terminal that performs insanely well for my needs. You can read more about it

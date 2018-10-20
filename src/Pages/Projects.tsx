@@ -83,7 +83,7 @@ function Project(props: ProjectProps) {
         />
       </div>
       <div style={flipped ? {order: 1} : {order: 2}} className="project-writeup">
-        <h1>{title}</h1>
+        <h2>{title}</h2>
         <h3>{subtitle}</h3>
         {
           text.map((item) => (<p>{item}</p>))
