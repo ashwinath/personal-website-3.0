@@ -1,6 +1,7 @@
 import * as React from 'react';
 import NavigationBar from '../Components/NavigationBar';
 import Footer from '../Components/Footer';
+import { Link } from 'react-router-dom';
 
 import './MainPage.css';
 
@@ -64,12 +65,7 @@ function LandingAbout() {
 
 function LinkBox(props: LinkBoxProps) {
   return (
-    <a
-      href={props.link}
-      target={props.openInNewTab ? "_blank": ""}
-      rel={props.openInNewTab ? "noopener noreferrer": ""}
-      className="link-box-wrapper"
-    >
+    <Linker {...props}>
       <div className="link-box-icon-section">
         <p><i className={props.iconClass}/></p>
       </div>
@@ -78,8 +74,36 @@ function LinkBox(props: LinkBoxProps) {
         <p>{props.subtitle}</p>
         <p className="call-to-action">{props.callToActionText}</p>
       </div>
-    </a>
+    </Linker>
   );
+}
+
+function Linker(props: LinkerProps) {
+  const { link, openInNewTab, children } = props;
+  if (openInNewTab) {
+    return (
+      <a
+        href={link}
+        target={props.openInNewTab ? "_blank": ""}
+        rel={props.openInNewTab ? "noopener noreferrer": ""}
+        className="link-box-wrapper"
+      >
+        {props.children}
+      </a>
+    );
+  }
+
+  return (
+    <Link to={link} className="link-box-wrapper">
+      {children}
+    </Link>
+  );
+}
+
+interface LinkerProps {
+  link: string;
+  openInNewTab: boolean;
+  children: React.ReactNode;
 }
 
 interface LinkBoxProps {
