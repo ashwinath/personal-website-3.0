@@ -12,6 +12,8 @@ import {
 } from 'reactstrap';
 import LandingCover from '../Components/LandingCover';
 import Content from '../Components/Content';
+import NavigationBar from '../Components/NavigationBar';
+import Footer from '../Components/Footer';
 
 import './MainPage.css';
 
@@ -54,6 +56,7 @@ class MainPage extends React.Component<{}, MainPageState> {
       const { landing, about, workExperience } = this.state.response
       return (
         <div>
+          <NavigationBar />
           <LandingCover message={landing.title}
             imageUrl={landing.pictureUrl} />
           <Content colourScheme={"two"}>
@@ -62,6 +65,7 @@ class MainPage extends React.Component<{}, MainPageState> {
           <Content colourScheme={"one"}>
             <WorkExperience workExperience={workExperience}/>
           </Content>
+          <Footer />
         </div>
       );
     } else {
