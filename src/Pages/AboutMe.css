@@ -1,7 +1,7 @@
 .about-component {
   display: flex;
   padding: 30px 20%;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -11,12 +11,12 @@
 
 .about-picture {
   flex: 1;
+  text-align: center;
 }
 
 .about-component img {
   max-height: 400px;
   max-width: 100%;
-  padding: 0 50px;
 }
 
 .about-writeup {
@@ -88,9 +88,9 @@
     text-align: center;
   }
 
-  .about-component img {
+  .about-picture img {
     max-height: 200px;
-    padding: 0 50px;
+    padding: 10px 50px;
   }
 
   .about-writeup h2 {
@@ -108,5 +108,15 @@
   .about-writeup p {
     font-size: 120%;
     line-height: 1.5;
+  }
+
+  .download-resume-section a {
+    font-size: 100%;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .download-resume-section {
+    padding: 20px;
   }
 }
