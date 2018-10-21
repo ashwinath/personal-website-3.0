@@ -41,8 +41,8 @@ class NavigationBar extends React.Component<{}, NavState> {
               <Nav className="ml-auto" navbar={true}>
                 <NavItem>
                   <NavLink>
-                    <Link to="/" style={{ textDecoration: 'none' }}>
-                      <div className="nav-item-text">About</div>
+                    <Link to="/about-me" style={{ textDecoration: 'none' }}>
+                      <div className="nav-item-text">About Me</div>
                     </Link>
                   </NavLink>
                 </NavItem>

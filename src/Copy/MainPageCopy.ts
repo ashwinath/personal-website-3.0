@@ -16,11 +16,11 @@ export const linkTexts = [
     openInNewTab: false,
   },
   {
-    iconClass: "fa fa-pencil",
-    title: "Resume",
-    subtitle: "A brief summary of what I've done.",
+    iconClass: "fa fa-user",
+    title: "About Me",
+    subtitle: "Who I am and what I've done.",
     callToActionText: "Get a copy of my resume.",
-    link: "https://drive.google.com/file/d/1494cpkalxwNZVaMszWZmW5ZeoVtvjNvb/view?usp=sharing",
-    openInNewTab: true,
+    link: "/about-me",
+    openInNewTab: false,
   },
 ];
