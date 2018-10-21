@@ -3,19 +3,14 @@ import ContentHeader from "../Components/ContentHeader";
 import NavigationBar from '../Components/NavigationBar';
 import Footer from '../Components/Footer';
 import "./Workflow.css"
+import { contentHeaderProps } from '../Copy/WorkflowCopy';
 
 class Workflow extends React.Component<{}, {}> {
-  private CONTENT_HEADER_PROPS = {
-    iconClass: "fa fa-desktop",
-    title: "Workflow",
-    subtitle: "How I spend most of my work hours."
-  };
-
   public render() {
     return (
       <div>
         <NavigationBar />
-        <ContentHeader {...this.CONTENT_HEADER_PROPS}/>
+        <ContentHeader {...contentHeaderProps}/>
         <Item />
         <Footer />
       </div>

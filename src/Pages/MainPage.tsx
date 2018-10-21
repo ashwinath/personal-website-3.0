@@ -2,36 +2,12 @@ import * as React from 'react';
 import NavigationBar from '../Components/NavigationBar';
 import Footer from '../Components/Footer';
 import { Link } from 'react-router-dom';
+import { LinkerProps, LinkBoxProps } from '../Interfaces';
+import { linkTexts } from '../Copy/MainPageCopy';
 
 import './MainPage.css';
 
 class MainPage extends React.Component<{}, {}> {
-  private LINK_TEXTS = [
-    {
-      iconClass: "fa fa-book",
-      title: "Blog",
-      subtitle: "Read about what I've learnt so far.",
-      callToActionText: "Read on my blog.",
-      link: "https://blog.ashwinchat.com",
-      openInNewTab: true,
-    },
-    {
-      iconClass: "fa fa-code",
-      title: "Projects",
-      subtitle: "Software projects I do on the side.",
-      callToActionText: "Check out the list.",
-      link: "/projects",
-      openInNewTab: false,
-    },
-    {
-      iconClass: "fa fa-pencil",
-      title: "Resume",
-      subtitle: "A brief summary of what I've done.",
-      callToActionText: "Get a copy of my resume.",
-      link: "https://drive.google.com/file/d/1494cpkalxwNZVaMszWZmW5ZeoVtvjNvb/view?usp=sharing",
-      openInNewTab: true,
-    },
-  ];
 
   public render() {
     return (
@@ -44,7 +20,7 @@ class MainPage extends React.Component<{}, {}> {
             </div>
 
             <div className="link-text-wrapper">
-              { this.LINK_TEXTS.map((text) => <LinkBox key={text.title} {...text}/>)}
+              { linkTexts.map((text) => <LinkBox key={text.title} {...text}/>)}
             </div>
           </div>
         </div>
@@ -98,21 +74,6 @@ function Linker(props: LinkerProps) {
       {children}
     </Link>
   );
-}
-
-interface LinkerProps {
-  link: string;
-  openInNewTab: boolean;
-  children: React.ReactNode;
-}
-
-interface LinkBoxProps {
-  iconClass: string;
-  title: string;
-  subtitle: string;
-  callToActionText: string;
-  link: string;
-  openInNewTab: boolean;
 }
 
 export default MainPage;
