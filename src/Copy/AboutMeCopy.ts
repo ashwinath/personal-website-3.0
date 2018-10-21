@@ -1,7 +1,7 @@
 export const contentHeaderProps = {
   iconClass: "fa fa-user",
   title: "About me",
-  subtitle: "Who I am"
+  subtitle: "Into the mind of Ashwin"
 };
 
 export const aboutMeProps = {
