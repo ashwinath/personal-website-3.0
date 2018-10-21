@@ -20,3 +20,11 @@ export interface ProjectProps {
   subtitle: string;
   text: string[];
 }
+
+export interface AboutComponentProps {
+  imageUrl: string;
+  title: string;
+  subtitle: string;
+  text: string[];
+  flipped: boolean;
+}

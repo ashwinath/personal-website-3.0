@@ -8,7 +8,6 @@ import { linkTexts } from '../Copy/MainPageCopy';
 import './MainPage.css';
 
 class MainPage extends React.Component<{}, {}> {
-
   public render() {
     return (
       <div className="main-page-wrapper">
@@ -77,4 +76,3 @@ function Linker(props: LinkerProps) {
 }
 
 export default MainPage;
-

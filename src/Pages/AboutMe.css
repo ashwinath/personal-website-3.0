@@ -1,0 +1,112 @@
+.about-component {
+  display: flex;
+  padding: 30px 20%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-component-flipped {
+  background-color: #efefef;
+}
+
+.about-picture {
+  flex: 1;
+}
+
+.about-component img {
+  max-height: 400px;
+  max-width: 100%;
+  padding: 0 50px;
+}
+
+.about-writeup {
+  text-align: justify;
+  flex: 1;
+}
+
+.about-writeup h2 {
+  font-size: 300%;
+  font-weight: 200;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+.about-writeup h3 {
+  font-size: 180%;
+  padding-bottom: 10px;
+}
+
+.about-writeup p {
+  font-size: 130%;
+  line-height: 1.5;
+}
+
+.download-resume-section {
+  background-color: #e7e7e7;
+  text-align: center;
+  margin: 0;
+  padding: 40px;
+}
+
+.download-resume-section a {
+  font-size: 150%;
+  background-color: #ff9811;
+  border-radius: 15px;
+  padding: 20px;
+  color: #fff;
+}
+
+.download-resume-section a:hover,
+.download-resume-section a:active {
+  background-color: #ee8700;
+  color: #fff;
+  transition: background-color 0.2s;
+}
+
+.download-resume-section a:link,
+.download-resume-section a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+@media only screen and (max-width: 1500px) {
+  .about-component {
+    padding: 30px 10%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .about-component {
+    padding: 30px 5%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .about-component {
+    padding: 30px 10%;
+    display: block;
+    text-align: center;
+  }
+
+  .about-component img {
+    max-height: 200px;
+    padding: 0 50px;
+  }
+
+  .about-writeup h2 {
+    font-size: 200%;
+    font-weight: 200;
+    padding-bottom: 10px;
+    text-align: left;
+  }
+
+  .about-writeup h3 {
+    font-size: 150%;
+    padding-bottom: 10px;
+  }
+
+  .about-writeup p {
+    font-size: 120%;
+    line-height: 1.5;
+  }
+}
