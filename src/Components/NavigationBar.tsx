@@ -73,7 +73,7 @@ class NavigationBar extends React.Component<{}, NavState> {
                 <NavItem>
                   <NavLink
                     className="nav-item-text"
-                    href="https://drive.google.com/file/d/1494cpkalxwNZVaMszWZmW5ZeoVtvjNvb/view?usp=sharing"
+                    href="https://drive.google.com/open?id=12uIZk0l24Pp0bvPNO3ViQXckzsxpI8bg"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
