@@ -1,4 +1,6 @@
 import * as React from 'react';
+import NavigationBar from '../Components/NavigationBar';
+import Footer from '../Components/Footer';
 import { Link } from 'react-router-dom';
 import { LinkerProps, LinkBoxProps } from '../Interfaces';
 import { linkTexts } from '../Copy/MainPageCopy';
@@ -9,6 +11,7 @@ class MainPage extends React.Component<{}, {}> {
   public render() {
     return (
       <div className="main-page-wrapper">
+        <NavigationBar />
         <div className="landing-page">
           <div className="main-page-contents-wrapper">
             <div>
@@ -20,6 +23,7 @@ class MainPage extends React.Component<{}, {}> {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
