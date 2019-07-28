@@ -17,11 +17,14 @@ export const workExperienceProps = [
   {
     imageUrl: "./Images/NinetyNine.png",
     title: "99.co",
-    subtitle: "Software Engineer",
+    subtitle: "Software/DevOps Engineer",
     text: [
-      "Primarily a backend engineer, but have been involved a lot in operations, and a bit of frontend. I mainly develop and augment the product with more features here.",
-      "I have worked on the core feature of the the website, search, which is powered by Elasticsearch. I wrote most of the New Launches search feature back in September 2018. I have also worked heavily on the advertising platform of the company which is called Maximiser, both in the logic and implementation of the feature. More info about my learnings can be found in my blog.",
-      "I take pride in what I do and have extremely high code coverage in the services I write."
+      "Primarily a backend engineer, but have been heavily involved in operations, and a bit of frontend. Recently transitioned into DevOps as I was already involved heavily in infrastructure and operation work.",
+      "Built a part of the autocomplete text search on the search bar using a Marisa Trie that searches all neighbourhoods, districts, areas et al in less than 5ms.",
+      "I have worked on the core feature of the the website, search, which is powered by Elasticsearch. I wrote most of the New Launches search feature back in September 2018.",
+      "I have also worked on the advertising platform of the company called Maximiser, both in the logic and implementation of the feature.",
+      "These days I help out with the infrastructure work in 99; automating CI/CD pipelines, orchestrating deployments using Kubernetes, as well as automating monitoring and alerting.",
+      "More info about my learnings can be found in my blog.",
     ],
   },
   {
