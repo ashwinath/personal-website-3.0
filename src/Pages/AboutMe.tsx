@@ -41,7 +41,7 @@ function DownloadResume() {
   return (
     <section className="download-resume-section">
       <a
-        href="https://drive.google.com/open?id=12uIZk0l24Pp0bvPNO3ViQXckzsxpI8bg"
+        href="https://drive.google.com/file/d/1XZTmKnj_HMPa0V5KF0lyZgmpO3TBzpRu/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"
       >
