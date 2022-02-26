@@ -6,6 +6,14 @@ export const contentHeaderProps = {
 
 export const allProjectsContent = [
   {
+    imageUrl: "/Images/Financials.png",
+    title: "Financials",
+    subtitle: "Knowing where your money is going",
+    text: [
+      `Financials is a way to track your financial independence in Singapore’s context. Inpsired by ”Your Money or Your Life” by Vicki Robin. It uses a Grafana frontend to display your current assets, investments and expenditure.`,
+    ],
+  },
+  {
     imageUrl: "/Images/PoeSearch.gif",
     title: "Path Of Exile Search",
     subtitle: "Learning Elasticsearch",

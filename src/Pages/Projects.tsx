@@ -1,6 +1,5 @@
 import * as React from "react";
 import NavigationBar from '../Components/NavigationBar';
-import Footer from '../Components/Footer';
 import ContentHeader from "../Components/ContentHeader";
 import { contentHeaderProps, allProjectsContent } from '../Copy/ProjectsCopy';
 import { ProjectProps } from '../Interfaces';
@@ -27,7 +26,6 @@ class Projects extends React.Component<{}, {}> {
             })
           }
         </div>
-        <Footer />
       </div>
     );
   }

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import MainPage from './Pages/MainPage';
-import Workflow from './Pages/Workflow';
 import Projects from './Pages/Projects';
 import AboutMe from './Pages/AboutMe';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -14,7 +13,6 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route path="/workflow" component={Workflow}/>
             <Route path="/projects" component={Projects}/>
             <Route path="/about-me" component={AboutMe}/>
             <Route component={MainPage}/>

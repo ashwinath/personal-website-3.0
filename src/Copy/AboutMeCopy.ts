@@ -7,13 +7,22 @@ export const contentHeaderProps = {
 export const aboutMeProps = {
   imageUrl: "./Images/ProfilePicture.jpg",
   title: "Hello there",
-  subtitle: "Software Engineer @ 99.co",
+  subtitle: "Software Engineer @ Gojek",
   text: [
-    "I graduated with a marketing degree but have been working professionally as a software engineer. Currently, I work at 99.co as a software engineer.",
+    "I graduated with a marketing degree but have been working professionally as a software engineer. Currently, I work at Gojek as a software engineer.",
   ],
 }
 
 export const workExperienceProps = [
+  {
+    imageUrl: "./Images/Gojek.png",
+    title: "Gojek",
+    subtitle: "Software Engineer, Infrastructure",
+    text: [
+      "I help maintain the expanding needs of the infrastructure in Data Science Platform. I am also involved in the development of Turing, an open source project (Gojek/Turing).",
+      "Data Science Platform is heavily reliant on Kubernetes and often acts as a self serving platform for data scientists to deploy and experiment their models, without the need for an engineer. With our engineering, data scientists can deploy and experiment on their models in production with confidence.",
+    ],
+  },
   {
     imageUrl: "./Images/NinetyNine.png",
     title: "99.co",

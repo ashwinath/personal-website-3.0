@@ -1,5 +1,8 @@
-FROM node:10.7-alpine
-MAINTAINER Ashwin Chatterji<ashwinath@hotmail.com>
+FROM node:16.14.0-alpine3.14
+
+LABEL org.opencontainers.image.authors="ashwinath@hotmail.com"
+LABEL org.opencontainers.image.source https://github.com/ashwinath/personal-website-3.0
+
 WORKDIR /app
 EXPOSE 5000
 

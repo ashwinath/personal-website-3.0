@@ -1,7 +1,6 @@
 import * as React from 'react';
 import ContentHeader from "../Components/ContentHeader";
 import NavigationBar from '../Components/NavigationBar';
-import Footer from '../Components/Footer';
 import {
   contentHeaderProps,
   aboutMeProps,
@@ -31,7 +30,6 @@ class AboutMe extends React.Component {
           })
         }
         <DownloadResume />
-        <Footer />
       </div>
     );
   }
@@ -41,7 +39,7 @@ function DownloadResume() {
   return (
     <section className="download-resume-section">
       <a
-        href="https://drive.google.com/file/d/1XZTmKnj_HMPa0V5KF0lyZgmpO3TBzpRu/view?usp=sharing"
+        href="https://github.com/ashwinath/resume/releases/download/v0.1/ashwin.pdf"
         target="_blank"
         rel="noopener noreferrer"
       >
