@@ -64,7 +64,7 @@ class NavigationBar extends React.Component<{}, NavState> {
               <NavItem>
                 <NavLink
                   className="nav-item-text"
-                  href="https://github.com/ashwinath/resume/releases/download/v0.1/ashwin.pdf"
+                  href="https://github.com/ashwinath/resume/releases/download/v0.4/ashwin.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

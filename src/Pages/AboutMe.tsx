@@ -39,7 +39,7 @@ function DownloadResume() {
   return (
     <section className="download-resume-section">
       <a
-        href="https://github.com/ashwinath/resume/releases/download/v0.1/ashwin.pdf"
+        href="https://github.com/ashwinath/resume/releases/download/v0.4/ashwin.pdf"
         target="_blank"
         rel="noopener noreferrer"
       >
