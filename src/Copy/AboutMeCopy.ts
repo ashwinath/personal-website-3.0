@@ -15,6 +15,24 @@ export const aboutMeProps = {
 
 export const workExperienceProps = [
   {
+    imageUrl: "./Images/F5.png",
+    title: "F5",
+    subtitle: "Senior Software Engineer",
+    text: [
+      "I am a part of F5 distributed cloud team (formerly known as Volterra) in the SRE team.",
+      "We manage our customers' infrastructure that can span across cloud providers such as AWS/GCP/Azure as well as bare metal servers. Customers can have a combination of servers from different providers and perform as though it is within a cluster.",
+    ],
+  },
+  {
+    imageUrl: "./Images/Indeed.png",
+    title: "Indeed",
+    subtitle: "Software Engineer",
+    text: [
+      "I was part of the salary estimation team where I helped to maintain and add features to anything salary related.",
+      "I worked closely with data scientists, engineers, UI/UX designers/researchers to design and implement A/B tests to improve the estimation of salaries whenever a job posting does not post a salary value.",
+    ],
+  },
+  {
     imageUrl: "./Images/Gojek.png",
     title: "Gojek",
     subtitle: "Software Engineer, Infrastructure",
